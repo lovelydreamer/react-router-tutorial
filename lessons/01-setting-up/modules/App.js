@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router'
+import NavLink from './NavLink'
+import Home from './Home'
+import { IndexLink, Link } from 'react-router'
 
 export default React.createClass({
   render() {
@@ -7,10 +9,11 @@ export default React.createClass({
     <div>
       <h1>React Router Tutorial</h1> 
       <ul role="nav">
-        <li><Link to="/about" activeStyle={{ color: 'red' }}>About</Link></li>
-        <li><Link to="/repos" activeStyle={{ color: 'red' }}>Repos</Link></li>
+        <li><NavLink to="/about">About</NavLink></li>
+        <li><NavLink to="/repos">Repos</NavLink></li>
+        <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
        </ul> 
-       {this.props.children}
+       {this.props.children || <Home/>}
     </div>
    )
   }
